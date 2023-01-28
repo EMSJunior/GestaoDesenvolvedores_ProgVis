@@ -116,14 +116,15 @@ namespace GestaoDesenvolvedores
                 return;
             }
 
+            MessageBox.Show((dgvProjectsList.SelectedRows[0].DataBoundItem as Project).ToString());
             Allocation aloc = new Allocation
                 (
                 dtpStartDate.Value.Date,
                 dtpEndDate.Value.Date,
                 Convert.ToByte(nudSemanalHours.Value),
                 Convert.ToDecimal(txtRemuneration.Text),
-                (dgvProjectsList.SelectedRows[0].DataBoundItem as Project).Id,
-                (dgvDevsList.SelectedRows[0].DataBoundItem as Developer).Id
+                (dgvProjectsList.SelectedRows[0].DataBoundItem as Project),
+                (dgvDevsList.SelectedRows[0].DataBoundItem as Developer)
                 );
             AllocationRepository.Save(aloc);
 

@@ -61,5 +61,26 @@ namespace GestaoDesenvolvedores
                 throw;
             }
         }
+
+        public static List<Allocation> FindPersonalsProjects(Developer dev)
+        {
+            try
+            {
+                using (Repository dbContext = new Repository())
+                {
+                    return dbContext.Allocations
+                        .Include("Project")
+                        .Where(a => a.Developer.Id == dev.Id)
+                        .ToList();
+                }
+
+            }
+            catch
+            {
+                throw;
+            }
+        }
+
+        
     }
 }

@@ -14,6 +14,9 @@ namespace GestaoDesenvolvedores
             {
                 using (Repository dbContext = new Repository())
                 {
+                    dbContext.Projects.Attach(aloc.Project);
+                    dbContext.Developers.Attach(aloc.Developer);
+
                     dbContext.Allocations.Add(aloc);
                     dbContext.SaveChanges();
                 }

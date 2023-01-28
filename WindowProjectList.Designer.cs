@@ -30,8 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(WindowProjectList));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.dgvProjects = new System.Windows.Forms.DataGridView();
             this.lblYourProject = new System.Windows.Forms.Label();
+            this.dgvProjects = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProjects)).BeginInit();
             this.SuspendLayout();
@@ -53,24 +53,6 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(254, 370);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
-            // dgvProjects
-            // 
-            this.dgvProjects.AllowUserToAddRows = false;
-            this.dgvProjects.AllowUserToDeleteRows = false;
-            this.dgvProjects.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgvProjects.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvProjects.Location = new System.Drawing.Point(3, 45);
-            this.dgvProjects.Name = "dgvProjects";
-            this.dgvProjects.ReadOnly = true;
-            this.dgvProjects.ShowCellErrors = false;
-            this.dgvProjects.ShowCellToolTips = false;
-            this.dgvProjects.ShowEditingIcon = false;
-            this.dgvProjects.ShowRowErrors = false;
-            this.dgvProjects.Size = new System.Drawing.Size(248, 322);
-            this.dgvProjects.TabIndex = 0;
-            // 
             // lblYourProject
             // 
             this.lblYourProject.Anchor = System.Windows.Forms.AnchorStyles.Left;
@@ -78,11 +60,33 @@
             this.lblYourProject.Font = new System.Drawing.Font("Microsoft Sans Serif", 17.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblYourProject.Location = new System.Drawing.Point(3, 6);
             this.lblYourProject.Name = "lblYourProject";
-            this.lblYourProject.Size = new System.Drawing.Size(177, 29);
+            this.lblYourProject.Size = new System.Drawing.Size(181, 29);
             this.lblYourProject.TabIndex = 3;
-            this.lblYourProject.Text = "Seus Projetos";
+            this.lblYourProject.Text = "Meus Projetos";
+            this.lblYourProject.Click += new System.EventHandler(this.lblYourProject_Click);
             // 
-            // ProjectList
+            // dgvProjects
+            // 
+            this.dgvProjects.AllowUserToAddRows = false;
+            this.dgvProjects.AllowUserToDeleteRows = false;
+            this.dgvProjects.AllowUserToOrderColumns = true;
+            this.dgvProjects.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvProjects.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvProjects.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvProjects.Location = new System.Drawing.Point(3, 45);
+            this.dgvProjects.Name = "dgvProjects";
+            this.dgvProjects.ReadOnly = true;
+            this.dgvProjects.RowHeadersVisible = false;
+            this.dgvProjects.ShowCellErrors = false;
+            this.dgvProjects.ShowCellToolTips = false;
+            this.dgvProjects.ShowEditingIcon = false;
+            this.dgvProjects.ShowRowErrors = false;
+            this.dgvProjects.Size = new System.Drawing.Size(248, 322);
+            this.dgvProjects.TabIndex = 0;
+            // 
+            // WindowProjectList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -91,7 +95,7 @@
             this.Controls.Add(this.tableLayoutPanel1);
             this.ForeColor = System.Drawing.Color.Aqua;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "ProjectList";
+            this.Name = "WindowProjectList";
             this.Text = "ProjectList";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
@@ -103,7 +107,7 @@
         #endregion
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.DataGridView dgvProjects;
         private System.Windows.Forms.Label lblYourProject;
+        private System.Windows.Forms.DataGridView dgvProjects;
     }
 }

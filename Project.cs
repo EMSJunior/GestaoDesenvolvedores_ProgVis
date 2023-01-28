@@ -21,5 +21,14 @@ namespace GestaoDesenvolvedores
         public DateTime ExpectedFinishDate { get; set; }
         public DateTime RealFinishDate { get; set; }
 
+        public override string ToString()
+        {
+            return Id
+                + "- " + Name
+                + ", Início: " + StartDate.Date
+                + ", Prazo: " + ExpectedFinishDate.Date
+                + ", Status: " + ((RealFinishDate == DateTime.MinValue.Date) ? "Não concluido" : RealFinishDate.ToString());
+        }
     }
+
 }

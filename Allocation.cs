@@ -20,20 +20,20 @@ namespace GestaoDesenvolvedores
         public Byte AtuacionHoursPerWeek { get; set; }
         public Decimal Remuneration { get; set; }
         [Required]
-        public int ProjectId { get; set; }
+        public Project Project { get; set; }
         [Required]
-        public int DeveloperId { get; set; }
+        public Developer Developer { get; set; }
         public List<Task> Tasks { get; set; }
 
         public Allocation() { }
-        public Allocation(DateTime startDate, DateTime finishDate, byte atuacionHoursPerWeek, decimal remuneration, int project, int developer)
+        public Allocation(DateTime startDate, DateTime finishDate, byte atuacionHoursPerWeek, decimal remuneration, Project project, Developer developer)
         {
             StartDate = startDate;
             FinishDate = finishDate;
             AtuacionHoursPerWeek = atuacionHoursPerWeek;
             Remuneration = remuneration;
-            ProjectId = project;
-            DeveloperId = developer;
+            Project = project;
+            Developer = developer;
         }
         public override string ToString()
         {
@@ -42,8 +42,8 @@ namespace GestaoDesenvolvedores
                 + ", FinishDate: " + FinishDate
                 + ", AtuacionHoursPerWeek: " + AtuacionHoursPerWeek
                 + ", Remuneration: " + Remuneration
-                + ", Project: " + ProjectId
-                + ", Developer: " + DeveloperId
+                + ", Project: " + Project
+                + ", Developer: " + Developer
                 + ", Tasks: " + Tasks;
         }
     }

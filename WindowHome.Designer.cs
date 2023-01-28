@@ -40,6 +40,10 @@
             this.tsmTask = new System.Windows.Forms.ToolStripMenuItem();
             this.tmiTaskList = new System.Windows.Forms.ToolStripMenuItem();
             this.tmiTaskNew = new System.Windows.Forms.ToolStripMenuItem();
+            this.alocaçõesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tmiAllocationCreate = new System.Windows.Forms.ToolStripMenuItem();
+            this.tmiAllocationList = new System.Windows.Forms.ToolStripMenuItem();
+            this.tmiMyAlloc = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmDev = new System.Windows.Forms.ToolStripMenuItem();
             this.tmiDevAlocatte = new System.Windows.Forms.ToolStripMenuItem();
             this.tmiDevManagement = new System.Windows.Forms.ToolStripMenuItem();
@@ -52,6 +56,7 @@
             this.tsmProgram,
             this.tsmProject,
             this.tsmTask,
+            this.alocaçõesToolStripMenuItem,
             this.tsmDev});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -119,7 +124,6 @@
             this.tsmTask.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tmiTaskList,
             this.tmiTaskNew});
-            this.tsmTask.Enabled = false;
             this.tsmTask.Name = "tsmTask";
             this.tsmTask.Size = new System.Drawing.Size(55, 20);
             this.tsmTask.Text = "Tarefas";
@@ -127,15 +131,48 @@
             // tmiTaskList
             // 
             this.tmiTaskList.Name = "tmiTaskList";
-            this.tmiTaskList.Size = new System.Drawing.Size(180, 22);
+            this.tmiTaskList.Size = new System.Drawing.Size(99, 22);
             this.tmiTaskList.Text = "Lista";
             // 
             // tmiTaskNew
             // 
             this.tmiTaskNew.Name = "tmiTaskNew";
-            this.tmiTaskNew.Size = new System.Drawing.Size(180, 22);
+            this.tmiTaskNew.Size = new System.Drawing.Size(99, 22);
             this.tmiTaskNew.Text = "Criar";
             this.tmiTaskNew.Visible = false;
+            // 
+            // alocaçõesToolStripMenuItem
+            // 
+            this.alocaçõesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tmiAllocationCreate,
+            this.tmiAllocationList,
+            this.tmiMyAlloc});
+            this.alocaçõesToolStripMenuItem.Name = "alocaçõesToolStripMenuItem";
+            this.alocaçõesToolStripMenuItem.Size = new System.Drawing.Size(73, 20);
+            this.alocaçõesToolStripMenuItem.Text = "Alocações";
+            // 
+            // tmiAllocationCreate
+            // 
+            this.tmiAllocationCreate.Name = "tmiAllocationCreate";
+            this.tmiAllocationCreate.Size = new System.Drawing.Size(180, 22);
+            this.tmiAllocationCreate.Text = "Criar alocação";
+            this.tmiAllocationCreate.Visible = false;
+            this.tmiAllocationCreate.Click += new System.EventHandler(this.tmiAllocationCreate_Click);
+            // 
+            // tmiAllocationList
+            // 
+            this.tmiAllocationList.Name = "tmiAllocationList";
+            this.tmiAllocationList.Size = new System.Drawing.Size(180, 22);
+            this.tmiAllocationList.Text = "Lista de alocações";
+            this.tmiAllocationList.Visible = false;
+            this.tmiAllocationList.Click += new System.EventHandler(this.tmiAllocationList_Click);
+            // 
+            // tmiMyAlloc
+            // 
+            this.tmiMyAlloc.Name = "tmiMyAlloc";
+            this.tmiMyAlloc.Size = new System.Drawing.Size(180, 22);
+            this.tmiMyAlloc.Text = "Minhas alocações";
+            this.tmiMyAlloc.Click += new System.EventHandler(this.tmiMyAlloc_Click);
             // 
             // tsmDev
             // 
@@ -150,14 +187,14 @@
             // tmiDevAlocatte
             // 
             this.tmiDevAlocatte.Name = "tmiDevAlocatte";
-            this.tmiDevAlocatte.Size = new System.Drawing.Size(180, 22);
+            this.tmiDevAlocatte.Size = new System.Drawing.Size(124, 22);
             this.tmiDevAlocatte.Text = "Alocar";
             this.tmiDevAlocatte.Click += new System.EventHandler(this.tmiDevAlocatte_Click);
             // 
             // tmiDevManagement
             // 
             this.tmiDevManagement.Name = "tmiDevManagement";
-            this.tmiDevManagement.Size = new System.Drawing.Size(180, 22);
+            this.tmiDevManagement.Size = new System.Drawing.Size(124, 22);
             this.tmiDevManagement.Text = "Gerenciar";
             this.tmiDevManagement.Click += new System.EventHandler(this.tmiDevManagement_Click);
             // 
@@ -201,5 +238,9 @@
         private System.Windows.Forms.ToolStripMenuItem tsmDev;
         private System.Windows.Forms.ToolStripMenuItem tmiDevAlocatte;
         private System.Windows.Forms.ToolStripMenuItem tmiDevManagement;
+        private System.Windows.Forms.ToolStripMenuItem alocaçõesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tmiAllocationCreate;
+        private System.Windows.Forms.ToolStripMenuItem tmiAllocationList;
+        private System.Windows.Forms.ToolStripMenuItem tmiMyAlloc;
     }
 }

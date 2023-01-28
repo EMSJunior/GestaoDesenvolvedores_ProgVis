@@ -112,6 +112,12 @@
     <Compile Include="WindowAllocation.Designer.cs">
       <DependentUpon>WindowAllocation.cs</DependentUpon>
     </Compile>
+    <Compile Include="WindowAllocationsList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WindowAllocationsList.Designer.cs">
+      <DependentUpon>WindowAllocationsList.cs</DependentUpon>
+    </Compile>
     <Compile Include="WindowCreateProject.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -171,6 +177,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="WindowAllocation.resx">
       <DependentUpon>WindowAllocation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WindowAllocationsList.resx">
+      <DependentUpon>WindowAllocationsList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WindowCreateProject.resx">
       <DependentUpon>WindowCreateProject.cs</DependentUpon>

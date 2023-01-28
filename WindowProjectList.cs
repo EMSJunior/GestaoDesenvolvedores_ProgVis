@@ -17,7 +17,7 @@ namespace GestaoDesenvolvedores
         {
             InitializeComponent();
             devLog = dev;
-            dgvProjects.DataSource = ProjectRepository.FindPersonalsProjects(devLog);
+            dgvProjects.DataSource = AllocationRepository.FindPersonalsProjects(devLog);
 
             // Códigos para remover colunas que não pertencem à janela.
             dgvProjects.AutoGenerateColumns = false;

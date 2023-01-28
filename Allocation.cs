@@ -15,12 +15,12 @@ namespace GestaoDesenvolvedores
     internal class Allocation
     {
         public int Id { get; set; }
+        [Required]
+        public Project Project { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime FinishDate { get; set; }
         public Byte AtuacionHoursPerWeek { get; set; }
         public Decimal Remuneration { get; set; }
-        [Required]
-        public Project Project { get; set; }
         [Required]
         public Developer Developer { get; set; }
         public List<Task> Tasks { get; set; }

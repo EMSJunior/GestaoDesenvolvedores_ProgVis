@@ -23,6 +23,9 @@ namespace GestaoDesenvolvedores
             {
                 tmiProjectNew.Visible= true;
                 tsmDev.Visible= true;
+                tmiAllocationCreate.Visible= true;
+                //tmiAllocationList.Visible= true; Tem que criar a janela separada para esta.
+                
             }
         }
         private static WindowHome instance;
@@ -130,6 +133,42 @@ namespace GestaoDesenvolvedores
             }
             j.Activate();
             
+        }
+
+        private void tmiAllocationCreate_Click(object sender, EventArgs e)
+        {
+            var j = WindowAllocation.GetInstance();
+            if (j.MdiParent == null)
+            {
+                j.MdiParent = this;
+                j.Show();
+            }
+            else
+            {
+                j.WindowState = FormWindowState.Normal;
+            }
+            j.Activate();
+        }
+
+        private void tmiAllocationList_Click(object sender, EventArgs e)
+        {
+            
+
+        }
+
+        private void tmiMyAlloc_Click(object sender, EventArgs e)
+        {
+            var j = WindowAllocationsList.GetInstance(devLog);
+            if (j.MdiParent == null)
+            {
+                j.MdiParent = this;
+                j.Show();
+            }
+            else
+            {
+                j.WindowState = FormWindowState.Normal;
+            }
+            j.Activate();
         }
     }
 }

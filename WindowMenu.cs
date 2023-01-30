@@ -45,7 +45,7 @@ namespace GestaoDesenvolvedores
 
         private void Main_Load(object sender, EventArgs e)
         {
-            Repository repository = new Repository();
+
         }
     }
 }

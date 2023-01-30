@@ -25,8 +25,11 @@ namespace GestaoDesenvolvedores
         public Developer Developer { get; set; }
         public List<Task> Tasks { get; set; }
 
-        public Allocation() { }
-        public Allocation(DateTime startDate, DateTime finishDate, byte atuacionHoursPerWeek, decimal remuneration, Project project, Developer developer)
+        public Allocation() 
+        { 
+            Tasks = new List<Task>();
+        }
+        public Allocation(DateTime startDate, DateTime finishDate, byte atuacionHoursPerWeek, decimal remuneration, Project project, Developer developer) : this()
         {
             StartDate = startDate;
             FinishDate = finishDate;

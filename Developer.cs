@@ -20,6 +20,8 @@ namespace GestaoDesenvolvedores
         public Level Level { get; set; }
         public Credential Credential { get; set; }
 
+        public List<Allocation> Allocations { get; set; }
+
         public Developer() { }
         public Developer(string name, DateTime bdayDate, Level level)
         {

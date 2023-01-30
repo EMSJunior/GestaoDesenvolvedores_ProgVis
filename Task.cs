@@ -10,11 +10,19 @@ using System.Threading.Tasks;
 namespace GestaoDesenvolvedores
 {
     [Table("Tasks")]
-    public class Task
+    internal class Task
     {
         public int Id { get; set; }
         [Required]
         [StringLength(200)]
-        public String Describe { get { return Describe; }    set { Describe = value.Substring(200); } }
+        public String Description { get { return Description; }    set { Description = value.Substring(200); } }
+        public Allocation Allocation { get; set; }
+
+        public Task() { }
+        public Task(String description, Allocation allocation)
+        {
+            Description = description;
+            Allocation = allocation;
+        }
     }
 }

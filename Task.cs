@@ -13,16 +13,16 @@ namespace GestaoDesenvolvedores
     internal class Task
     {
         public int Id { get; set; }
+        
         [Required]
         [StringLength(200)]
-        public String Description { get { return Description; }    set { Description = value.Substring(200); } }
-        public Allocation Allocation { get; set; }
+        public String Description { get; set; }
 
         public Task() { }
-        public Task(String description, Allocation allocation)
+        public Task(String description)
         {
             Description = description;
-            Allocation = allocation;
         }
+
     }
 }

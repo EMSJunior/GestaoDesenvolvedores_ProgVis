@@ -14,6 +14,7 @@ namespace GestaoDesenvolvedores
         public DbSet<Level> Levels { get; set; }
         public DbSet<Project> Projects { get; set; }
         public DbSet<Allocation> Allocations { get; set; }
+        //public DbSet<Task> Tasks { get; set; }
 
         public Repository() : base(GetDbConnection(), false)
         {

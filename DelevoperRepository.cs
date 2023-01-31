@@ -12,8 +12,8 @@ namespace GestaoDesenvolvedores
     {
         public static void Save(Developer dev)
         {
-            //try
-            //{
+            try
+            {
                 using (Repository dbContext = new Repository())
                 {
                     dbContext.Entry(dev.Level).State = EntityState.Unchanged;
@@ -33,11 +33,11 @@ namespace GestaoDesenvolvedores
                     }
                     dbContext.SaveChanges();
                     }
-            //}
-            //catch (Exception)
-            //{
-            //    throw;
-            //}
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
        
 

@@ -131,15 +131,17 @@
             // tmiTaskList
             // 
             this.tmiTaskList.Name = "tmiTaskList";
-            this.tmiTaskList.Size = new System.Drawing.Size(99, 22);
+            this.tmiTaskList.Size = new System.Drawing.Size(180, 22);
             this.tmiTaskList.Text = "Lista";
+            this.tmiTaskList.Click += new System.EventHandler(this.tmiTaskList_Click);
             // 
             // tmiTaskNew
             // 
             this.tmiTaskNew.Name = "tmiTaskNew";
-            this.tmiTaskNew.Size = new System.Drawing.Size(99, 22);
+            this.tmiTaskNew.Size = new System.Drawing.Size(180, 22);
             this.tmiTaskNew.Text = "Criar";
             this.tmiTaskNew.Visible = false;
+            this.tmiTaskNew.Click += new System.EventHandler(this.tmiTaskNew_Click);
             // 
             // alocaçõesToolStripMenuItem
             // 
@@ -154,7 +156,7 @@
             // tmiAllocationCreate
             // 
             this.tmiAllocationCreate.Name = "tmiAllocationCreate";
-            this.tmiAllocationCreate.Size = new System.Drawing.Size(180, 22);
+            this.tmiAllocationCreate.Size = new System.Drawing.Size(169, 22);
             this.tmiAllocationCreate.Text = "Criar alocação";
             this.tmiAllocationCreate.Visible = false;
             this.tmiAllocationCreate.Click += new System.EventHandler(this.tmiAllocationCreate_Click);
@@ -162,7 +164,7 @@
             // tmiAllocationList
             // 
             this.tmiAllocationList.Name = "tmiAllocationList";
-            this.tmiAllocationList.Size = new System.Drawing.Size(180, 22);
+            this.tmiAllocationList.Size = new System.Drawing.Size(169, 22);
             this.tmiAllocationList.Text = "Lista de alocações";
             this.tmiAllocationList.Visible = false;
             this.tmiAllocationList.Click += new System.EventHandler(this.tmiAllocationList_Click);
@@ -170,7 +172,7 @@
             // tmiMyAlloc
             // 
             this.tmiMyAlloc.Name = "tmiMyAlloc";
-            this.tmiMyAlloc.Size = new System.Drawing.Size(180, 22);
+            this.tmiMyAlloc.Size = new System.Drawing.Size(169, 22);
             this.tmiMyAlloc.Text = "Minhas alocações";
             this.tmiMyAlloc.Click += new System.EventHandler(this.tmiMyAlloc_Click);
             // 

@@ -99,6 +99,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AllocationRepository.cs" />
+    <Compile Include="TaskRepository.cs" />
     <Compile Include="WindowAbout.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -128,6 +129,12 @@
     <Compile Include="CredentialRepository.cs" />
     <Compile Include="DelevoperRepository.cs" />
     <Compile Include="Developer.cs" />
+    <Compile Include="WindowCreateTask.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WindowCreateTask.Designer.cs">
+      <DependentUpon>WindowCreateTask.cs</DependentUpon>
+    </Compile>
     <Compile Include="WindowDevsManagement.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -183,6 +190,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="WindowCreateProject.resx">
       <DependentUpon>WindowCreateProject.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WindowCreateTask.resx">
+      <DependentUpon>WindowCreateTask.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WindowDevsManagement.resx">
       <DependentUpon>WindowDevsManagement.cs</DependentUpon>

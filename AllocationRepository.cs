@@ -1,21 +1,31 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace GestaoDesenvolvedores
 {
     internal class AllocationRepository
     {
+        
         public static void Save(Allocation aloc)
         {
             try
             {
                 using (Repository dbContext = new Repository())
                 {
-                    dbContext.Projects.Attach(aloc.Project);
-                    dbContext.Developers.Attach(aloc.Developer);
+                    if(aloc.Project != null) 
+                    { 
+                        dbContext.Projects.Attach(aloc.Project); 
+                    }
+                    if (aloc.Developer != null)
+                    {
+                        dbContext.Developers.Attach(aloc.Developer);
+                    }
 
                     dbContext.Allocations.Add(aloc);
                     dbContext.SaveChanges();
@@ -26,6 +36,7 @@ namespace GestaoDesenvolvedores
                 throw;
             }
         }
+
         public static List<Allocation> FindPersonalsProjects(Developer dev)
         {
             try
@@ -64,5 +75,65 @@ namespace GestaoDesenvolvedores
                 throw;
             }
         }
+        public static void AddTask(Allocation aloc,Task task)
+        {
+
+            try
+            {
+                using (Repository dbContext = new Repository())
+                {
+                    dbContext.Allocations.Attach(aloc);
+
+                    aloc.Tasks.Add(task);
+
+                    dbContext.SaveChanges();
+                }
+            }
+            catch
+            {
+                throw;
+            }
+
+        }
+
+        public static Allocation GetAllocationWTasksById(Int32 aloc)
+        {
+
+            try
+            {
+                using (Repository dbContext = new Repository())
+                {
+                    return dbContext.Allocations
+                        .Include("tasks")
+                        .FirstOrDefault(a => a.Id == aloc);
+                }
+            }
+            catch
+            {
+                throw;
+            }
+
+        }
+        public static List<Allocation> GetAllocationPerDeveloperOrProjectsWTask(String txt)
+        {
+
+            try
+            {
+                using (Repository dbContext = new Repository())
+                {
+                    return dbContext.Allocations
+                       .Include(a => a.Developer)
+                       .Include(a => a.Project)
+                       .Include("tasks")
+                       .Where(a => a.Developer.Name.Contains(txt) || a.Project.Name.Contains(txt)).ToList();
+                }
+            }
+            catch
+            {
+                throw;
+            }
+
+        }
+
     }
 }

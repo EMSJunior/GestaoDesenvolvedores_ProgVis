@@ -23,6 +23,7 @@ namespace GestaoDesenvolvedores
             {
                 tmiProjectNew.Visible= true;
                 tsmDev.Visible= true;
+                tmiTaskNew.Visible= true;
                 tmiAllocationCreate.Visible= true;
                 //tmiAllocationList.Visible= true; Tem que criar a janela separada para esta.
                 
@@ -159,6 +160,26 @@ namespace GestaoDesenvolvedores
         private void tmiMyAlloc_Click(object sender, EventArgs e)
         {
             var j = WindowAllocationsList.GetInstance(devLog);
+            if (j.MdiParent == null)
+            {
+                j.MdiParent = this;
+                j.Show();
+            }
+            else
+            {
+                j.WindowState = FormWindowState.Normal;
+            }
+            j.Activate();
+        }
+
+        private void tmiTaskList_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void tmiTaskNew_Click(object sender, EventArgs e)
+        {
+            var j = WindowCreateTask.GetInstance();
             if (j.MdiParent == null)
             {
                 j.MdiParent = this;

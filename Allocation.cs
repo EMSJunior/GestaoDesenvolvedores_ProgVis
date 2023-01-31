@@ -38,6 +38,7 @@ namespace GestaoDesenvolvedores
             Project = project;
             Developer = developer;
         }
+
         public override string ToString()
         {
             return Id
@@ -49,5 +50,6 @@ namespace GestaoDesenvolvedores
                 + ", Developer: " + Developer
                 + ", Tasks: " + Tasks;
         }
+
     }
 }

@@ -116,7 +116,6 @@ namespace GestaoDesenvolvedores
                 return;
             }
 
-            MessageBox.Show((dgvProjectsList.SelectedRows[0].DataBoundItem as Project).ToString());
             Allocation aloc = new Allocation
                 (
                 dtpStartDate.Value.Date,
@@ -132,5 +131,6 @@ namespace GestaoDesenvolvedores
 
 
         }
+
     }
 }

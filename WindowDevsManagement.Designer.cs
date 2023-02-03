@@ -52,7 +52,6 @@
             this.dgvDevsList = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.txtFind = new System.Windows.Forms.TextBox();
-            this.btnFind = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
@@ -379,15 +378,13 @@
             this.dgvDevsList.ShowRowErrors = false;
             this.dgvDevsList.Size = new System.Drawing.Size(449, 328);
             this.dgvDevsList.TabIndex = 3;
-            this.dgvDevsList.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDevsList_CellDoubleClick);
+            this.dgvDevsList.SelectionChanged += new System.EventHandler(this.dgvDevsList_SelectionChanged);
             // 
             // tableLayoutPanel4
             // 
-            this.tableLayoutPanel4.ColumnCount = 2;
+            this.tableLayoutPanel4.ColumnCount = 1;
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 76.16927F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 23.83073F));
             this.tableLayoutPanel4.Controls.Add(this.txtFind, 0, 0);
-            this.tableLayoutPanel4.Controls.Add(this.btnFind, 1, 0);
             this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 1;
@@ -400,21 +397,9 @@
             this.txtFind.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txtFind.Location = new System.Drawing.Point(3, 14);
             this.txtFind.Name = "txtFind";
-            this.txtFind.Size = new System.Drawing.Size(336, 26);
+            this.txtFind.Size = new System.Drawing.Size(443, 26);
             this.txtFind.TabIndex = 0;
-            // 
-            // btnFind
-            // 
-            this.btnFind.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnFind.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFind.Location = new System.Drawing.Point(345, 9);
-            this.btnFind.MinimumSize = new System.Drawing.Size(0, 35);
-            this.btnFind.Name = "btnFind";
-            this.btnFind.Size = new System.Drawing.Size(101, 35);
-            this.btnFind.TabIndex = 1;
-            this.btnFind.Text = "Buscar";
-            this.btnFind.UseVisualStyleBackColor = true;
-            this.btnFind.Click += new System.EventHandler(this.btnFind_Click);
+            this.txtFind.TextChanged += new System.EventHandler(this.txtFind_TextChanged);
             // 
             // WindowDevsManagement
             // 
@@ -470,7 +455,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         private System.Windows.Forms.TextBox txtFind;
-        private System.Windows.Forms.Button btnFind;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel7;

@@ -311,8 +311,6 @@
             // cbxLevel
             // 
             this.cbxLevel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.cbxLevel.DisplayMember = "2";
-            this.cbxLevel.FormattingEnabled = true;
             this.cbxLevel.Location = new System.Drawing.Point(58, 6);
             this.cbxLevel.Margin = new System.Windows.Forms.Padding(0);
             this.cbxLevel.MaxDropDownItems = 4;
@@ -338,7 +336,7 @@
             this.tsmBack.Text = "Voltar";
             this.tsmBack.Click += new System.EventHandler(this.tsmBack_Click);
             // 
-            // SignUp
+            // WindowSignUp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -351,7 +349,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.Name = "SignUp";
+            this.Name = "WindowSignUp";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SignUp";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SingUp_FormClosing);

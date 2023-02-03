@@ -47,6 +47,7 @@
             this.tsmDev = new System.Windows.Forms.ToolStripMenuItem();
             this.tmiDevAlocatte = new System.Windows.Forms.ToolStripMenuItem();
             this.tmiDevManagement = new System.Windows.Forms.ToolStripMenuItem();
+            this.tmiCadastroDev = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -131,14 +132,14 @@
             // tmiTaskList
             // 
             this.tmiTaskList.Name = "tmiTaskList";
-            this.tmiTaskList.Size = new System.Drawing.Size(180, 22);
+            this.tmiTaskList.Size = new System.Drawing.Size(99, 22);
             this.tmiTaskList.Text = "Lista";
             this.tmiTaskList.Click += new System.EventHandler(this.tmiTaskList_Click);
             // 
             // tmiTaskNew
             // 
             this.tmiTaskNew.Name = "tmiTaskNew";
-            this.tmiTaskNew.Size = new System.Drawing.Size(180, 22);
+            this.tmiTaskNew.Size = new System.Drawing.Size(99, 22);
             this.tmiTaskNew.Text = "Criar";
             this.tmiTaskNew.Visible = false;
             this.tmiTaskNew.Click += new System.EventHandler(this.tmiTaskNew_Click);
@@ -180,7 +181,8 @@
             // 
             this.tsmDev.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tmiDevAlocatte,
-            this.tmiDevManagement});
+            this.tmiDevManagement,
+            this.tmiCadastroDev});
             this.tsmDev.Name = "tsmDev";
             this.tsmDev.Size = new System.Drawing.Size(97, 20);
             this.tsmDev.Text = "Desenvolvedor";
@@ -189,16 +191,23 @@
             // tmiDevAlocatte
             // 
             this.tmiDevAlocatte.Name = "tmiDevAlocatte";
-            this.tmiDevAlocatte.Size = new System.Drawing.Size(124, 22);
+            this.tmiDevAlocatte.Size = new System.Drawing.Size(180, 22);
             this.tmiDevAlocatte.Text = "Alocar";
             this.tmiDevAlocatte.Click += new System.EventHandler(this.tmiDevAlocatte_Click);
             // 
             // tmiDevManagement
             // 
             this.tmiDevManagement.Name = "tmiDevManagement";
-            this.tmiDevManagement.Size = new System.Drawing.Size(124, 22);
+            this.tmiDevManagement.Size = new System.Drawing.Size(180, 22);
             this.tmiDevManagement.Text = "Gerenciar";
             this.tmiDevManagement.Click += new System.EventHandler(this.tmiDevManagement_Click);
+            // 
+            // tmiCadastroDev
+            // 
+            this.tmiCadastroDev.Name = "tmiCadastroDev";
+            this.tmiCadastroDev.Size = new System.Drawing.Size(180, 22);
+            this.tmiCadastroDev.Text = "Cadastro";
+            this.tmiCadastroDev.Click += new System.EventHandler(this.tmiCadastroDev_Click);
             // 
             // WindowHome
             // 
@@ -244,5 +253,6 @@
         private System.Windows.Forms.ToolStripMenuItem tmiAllocationCreate;
         private System.Windows.Forms.ToolStripMenuItem tmiAllocationList;
         private System.Windows.Forms.ToolStripMenuItem tmiMyAlloc;
+        private System.Windows.Forms.ToolStripMenuItem tmiCadastroDev;
     }
 }

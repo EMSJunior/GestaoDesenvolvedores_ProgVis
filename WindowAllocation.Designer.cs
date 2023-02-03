@@ -46,12 +46,10 @@
             this.dgvProjectsList = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.txtFindDev = new System.Windows.Forms.TextBox();
-            this.btnFindDev = new System.Windows.Forms.Button();
             this.lblProject = new System.Windows.Forms.Label();
             this.lblDev = new System.Windows.Forms.Label();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.txtFindProject = new System.Windows.Forms.TextBox();
-            this.btnFindProject = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel7.SuspendLayout();
@@ -328,39 +326,25 @@
             this.tableLayoutPanel3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel3.ColumnCount = 2;
+            this.tableLayoutPanel3.ColumnCount = 1;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 80F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel3.Controls.Add(this.txtFindDev, 0, 0);
-            this.tableLayoutPanel3.Controls.Add(this.btnFindDev, 1, 0);
             this.tableLayoutPanel3.Location = new System.Drawing.Point(321, 77);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel3.Size = new System.Drawing.Size(312, 31);
             this.tableLayoutPanel3.TabIndex = 4;
+            this.tableLayoutPanel3.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel3_Paint);
             // 
             // txtFindDev
             // 
             this.txtFindDev.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txtFindDev.Location = new System.Drawing.Point(3, 3);
             this.txtFindDev.Name = "txtFindDev";
-            this.txtFindDev.Size = new System.Drawing.Size(243, 26);
+            this.txtFindDev.Size = new System.Drawing.Size(306, 26);
             this.txtFindDev.TabIndex = 13;
-            // 
-            // btnFindDev
-            // 
-            this.btnFindDev.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnFindDev.AutoSize = true;
-            this.btnFindDev.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFindDev.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
-            this.btnFindDev.Location = new System.Drawing.Point(252, 3);
-            this.btnFindDev.Name = "btnFindDev";
-            this.btnFindDev.Size = new System.Drawing.Size(57, 25);
-            this.btnFindDev.TabIndex = 12;
-            this.btnFindDev.Text = "Buscar";
-            this.btnFindDev.UseVisualStyleBackColor = true;
-            this.btnFindDev.Click += new System.EventHandler(this.btnFindDev_Click);
+            this.txtFindDev.TextChanged += new System.EventHandler(this.txtFindDev_TextChanged);
             // 
             // lblProject
             // 
@@ -398,11 +382,9 @@
             this.tableLayoutPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel2.ColumnCount = 2;
+            this.tableLayoutPanel2.ColumnCount = 1;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 80F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel2.Controls.Add(this.txtFindProject, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.btnFindProject, 1, 0);
             this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 77);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
@@ -415,22 +397,9 @@
             this.txtFindProject.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txtFindProject.Location = new System.Drawing.Point(3, 3);
             this.txtFindProject.Name = "txtFindProject";
-            this.txtFindProject.Size = new System.Drawing.Size(243, 26);
+            this.txtFindProject.Size = new System.Drawing.Size(306, 26);
             this.txtFindProject.TabIndex = 13;
-            // 
-            // btnFindProject
-            // 
-            this.btnFindProject.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnFindProject.AutoSize = true;
-            this.btnFindProject.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFindProject.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
-            this.btnFindProject.Location = new System.Drawing.Point(252, 3);
-            this.btnFindProject.Name = "btnFindProject";
-            this.btnFindProject.Size = new System.Drawing.Size(57, 25);
-            this.btnFindProject.TabIndex = 12;
-            this.btnFindProject.Text = "Buscar";
-            this.btnFindProject.UseVisualStyleBackColor = true;
-            this.btnFindProject.Click += new System.EventHandler(this.btnFindProject_Click);
+            this.txtFindProject.TextChanged += new System.EventHandler(this.txtFindProject_TextChanged);
             // 
             // btnSave
             // 
@@ -485,11 +454,9 @@
         private System.Windows.Forms.Label lblProject;
         private System.Windows.Forms.Label lblDev;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private System.Windows.Forms.Button btnFindProject;
         private System.Windows.Forms.TextBox txtFindProject;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.TextBox txtFindDev;
-        private System.Windows.Forms.Button btnFindDev;
         private System.Windows.Forms.DataGridView dgvDevsList;
         private System.Windows.Forms.DataGridView dgvProjectsList;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;

@@ -42,6 +42,7 @@ namespace GestaoDesenvolvedores
                 selectedDev.Level = LevelsRepository.GetLevel((Level)cbxLevel.SelectedItem);
 
                 DeveloperRepository.Save(selectedDev);
+                txtFind_TextChanged(null, null);
             }
             else if (dialogResult == DialogResult.No)
             {
@@ -79,19 +80,31 @@ namespace GestaoDesenvolvedores
                 throw;
             }
         }
-        private void dgvDevsList_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            UpdateDev();
-        }
 
-        private void btnFind_Click(object sender, EventArgs e)
-        {
-            dgvDevsList.DataSource = DeveloperRepository.FindByPartialNameWCredential(txtFind.Text);
-        }
+
+
 
         private void label5_Click(object sender, EventArgs e)
         {
 
+        }
+
+
+        private void dgvDevsList_SelectionChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                UpdateDev();
+            }
+            catch
+            {
+
+            }
+        }
+
+        private void txtFind_TextChanged(object sender, EventArgs e)
+        {
+            dgvDevsList.DataSource = DeveloperRepository.FindByPartialNameWCredential(txtFind.Text);
         }
     }
 }

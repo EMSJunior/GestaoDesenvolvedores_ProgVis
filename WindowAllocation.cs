@@ -45,31 +45,6 @@ namespace GestaoDesenvolvedores
 
         }
 
-        private void btnFindProject_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                dgvProjectsList.DataSource = ProjectRepository.FindByPartialName(txtFindProject.Text);
-            }
-            catch 
-            {
-                throw;
-            }
-        }
-
-        private void btnFindDev_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                dgvDevsList.DataSource = DeveloperRepository.FindByPartialNameWCredential(txtFindDev.Text);
-            }
-            catch
-            {
-                throw;
-            }
-
-        }
-
         private void btnSave_Click(object sender, EventArgs e)
         {
             if (dgvProjectsList.SelectedRows.Count != 1) 
@@ -132,5 +107,33 @@ namespace GestaoDesenvolvedores
 
         }
 
+        private void txtFindProject_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                dgvProjectsList.DataSource = ProjectRepository.FindByPartialName(txtFindProject.Text);
+            }
+            catch
+            {
+                throw;
+            }
+        }
+
+        private void tableLayoutPanel3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void txtFindDev_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                dgvDevsList.DataSource = DeveloperRepository.FindByPartialNameWCredential(txtFindDev.Text);
+            }
+            catch
+            {
+                throw;
+            }
+        }
     }
 }

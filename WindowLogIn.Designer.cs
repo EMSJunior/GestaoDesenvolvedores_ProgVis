@@ -165,6 +165,7 @@
             this.txbSenha.TabIndex = 3;
             this.txbSenha.Text = "adminpass";
             this.txbSenha.UseSystemPasswordChar = true;
+            this.txbSenha.TextChanged += new System.EventHandler(this.txbSenha_TextChanged);
             this.txbSenha.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txbSenha_KeyUp);
             // 
             // tlpSingUp
@@ -206,7 +207,7 @@
             this.tsmBack.Text = "Voltar";
             this.tsmBack.Click += new System.EventHandler(this.tsmBack_Click);
             // 
-            // LogIn
+            // WindowLogIn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -220,7 +221,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.MinimumSize = new System.Drawing.Size(400, 350);
-            this.Name = "LogIn";
+            this.Name = "WindowLogIn";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LogIn";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.LogIn_FormClosing);

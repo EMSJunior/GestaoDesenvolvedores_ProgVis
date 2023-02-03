@@ -65,7 +65,7 @@ namespace GestaoDesenvolvedores
         {
             if (e.KeyCode == Keys.Enter)
             {
-                tsmBack.PerformClick();
+                btnLogIn_Click(null, null);
             }
         }
 
@@ -75,6 +75,11 @@ namespace GestaoDesenvolvedores
             {
                 txbSenha.Focus();
             }
+        }
+
+        private void txbSenha_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

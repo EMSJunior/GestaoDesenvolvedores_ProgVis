@@ -61,9 +61,48 @@ namespace GestaoDesenvolvedores
                 throw;
             }
         }
+        public static List<Developer> GetDevs(Project proj) 
+        {
+            try
+            {
+                using (Repository dbContext = new Repository())
+                {
+                    return dbContext.Allocations
+                        .Include("Developer")
+                        .Where(a => a.Project.Id == proj.Id)
+                        .Select(a => a.Developer)
+                        .ToList();
 
-  
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
 
-        
+        public static List<Developer> GetDevsPerName(Project proj, String name)
+        {
+            try
+            {
+                using (Repository dbContext = new Repository())
+                {
+                    return dbContext.Allocations
+                        .Include("Developer")
+                        .Where(a => a.Project.Id == proj.Id && a.Developer.Name.Contains(name))
+                        .Select(a => a.Developer)
+                        .ToList();
+
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+
+
+
     }
 }

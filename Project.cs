@@ -25,8 +25,8 @@ namespace GestaoDesenvolvedores
         {
             return Id
                 + "- " + Name
-                + ", Início: " + StartDate.Date
-                + ", Prazo: " + ExpectedFinishDate.Date
+                + ", Início: " + StartDate.ToShortDateString()
+                + ", Prazo: " + ExpectedFinishDate.ToShortDateString()
                 + ", Status: " + ((RealFinishDate == DateTime.MinValue.Date) ? "Não concluido" : RealFinishDate.ToString());
         }
     }

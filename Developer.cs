@@ -33,9 +33,9 @@ namespace GestaoDesenvolvedores
         public override string ToString()
         {
             return Id
-                + ", " + Name
-                + ", Level: " +  Level
-                + ", Credencial: " + Credential?.Id;
+                + "-> " + Name
+                + (Level == null? "":$", Level: {Level}")
+                + (Credential == null ? "" : $", Credential: {Credential}");
         }
     }
 }

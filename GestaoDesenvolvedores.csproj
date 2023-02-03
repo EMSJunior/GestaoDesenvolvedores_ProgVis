@@ -99,7 +99,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AllocationRepository.cs" />
-    <Compile Include="TaskRepository.cs" />
     <Compile Include="WindowAbout.cs">
       <SubType>Form</SubType>
     </Compile>

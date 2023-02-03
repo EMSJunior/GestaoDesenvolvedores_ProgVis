@@ -24,5 +24,10 @@ namespace GestaoDesenvolvedores
             Description = description;
         }
 
+        public override string ToString()
+        {
+            return Description;
+        }
+
     }
 }

@@ -16,15 +16,15 @@ namespace GestaoDesenvolvedores
         private WindowCreateTask(Allocation aloc = null)
         {
             InitializeComponent();
-            if(aloc != null)
-            {
-                List<Allocation> list = new List<Allocation>
-                {
-                    AllocationRepository.GetAllocationWTasksById(aloc.Id)
-                };
-                dgvAllocList.DataSource = list;
+            //if(aloc != null)
+            //{
+            //    List<Allocation> list = new List<Allocation>
+            //    {
+            //        AllocationRepository.GetAllocationWTasksById(aloc.Id)
+            //    };
+            //    dgvAllocList.DataSource = list;
 
-            }
+            //}
         }
 
         private static WindowCreateTask instance;
@@ -37,33 +37,43 @@ namespace GestaoDesenvolvedores
 
             return instance;
         }
-
-        private void btnFindAlloc_Click(object sender, EventArgs e)
-        {
-            dgvAllocList.DataSource = AllocationRepository.GetAllocationPerDeveloperOrProjectsWTask(txtProjectOrDev.Text);
-        }
-
         private void btnAddTask_Click(object sender, EventArgs e)
         {
+            Allocation aloc = AllocationRepository.GetByProjectAndDev((Project)lstProject.SelectedItem, (Developer)lstDev.SelectedItem);
             Task task = new Task(txtTask.Text);
 
-            AllocationRepository.AddTask(dgvAllocList.SelectedRows[0].DataBoundItem as Allocation, task);
+            AllocationRepository.AddTask(aloc, task);
 
-            Allocation selectedAloc = dgvAllocList.SelectedRows[0].DataBoundItem as Allocation;
+            MessageBox.Show("Tarefa adicionada!", "Aviso");
+            txtTask.Text = "";
 
-            dgvTasksList.DataSource = AllocationRepository.GetAllocationWTasksById(selectedAloc.Id).Tasks;
+            lstTask.DataSource = AllocationRepository.GetTask((Project)lstProject.SelectedItem, (Developer)lstDev.SelectedItem);
+
         }
 
-        private void dgvAllocList_SelectionChanged(object sender, EventArgs e)
+        private void btnFindDev_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void dgvAllocList_MouseClick(object sender, MouseEventArgs e)
+        private void lstProject_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Allocation selectedAloc = dgvAllocList.SelectedRows[0].DataBoundItem as Allocation;
+                lstDev.DataSource = ProjectRepository.GetDevs((Project)lstProject.SelectedItem);
+        }
 
-            dgvTasksList.DataSource = AllocationRepository.GetAllocationWTasksById(selectedAloc.Id).Tasks;
+        private void txtProjectOrDev_TextChanged(object sender, EventArgs e)
+        {
+            lstProject.DataSource = ProjectRepository.FindByPartialName(txtProjectOrDev.Text);
+        }
+
+        private void txtDev_TextChanged(object sender, EventArgs e)
+        {
+            lstDev.DataSource = ProjectRepository.GetDevsPerName((Project)lstProject.SelectedItem, txtDev.Text);
+        }
+
+        private void lstDev_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            lstTask.DataSource = AllocationRepository.GetTask((Project)lstProject.SelectedItem, (Developer)lstDev.SelectedItem);
         }
     }
 }

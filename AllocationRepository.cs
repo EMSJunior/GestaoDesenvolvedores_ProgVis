@@ -114,7 +114,23 @@ namespace GestaoDesenvolvedores
             }
 
         }
-        public static List<Allocation> GetAllocationPerDeveloperOrProjectsWTask(String txt)
+        public static Allocation GetByProjectAndDev(Project proj, Developer dev)
+        {
+            try
+            {
+                using (Repository dbContext = new Repository())
+                {
+                    return dbContext.Allocations
+                       .Where(a => a.Project.Id == proj.Id && a.Developer.Id == dev.Id)
+                       .FirstOrDefault();
+                }
+            }
+            catch
+            {
+                throw;
+            }
+        }
+        public static List<Task> GetTask(Project proj, Developer dev)
         {
 
             try
@@ -122,10 +138,11 @@ namespace GestaoDesenvolvedores
                 using (Repository dbContext = new Repository())
                 {
                     return dbContext.Allocations
-                       .Include(a => a.Developer)
-                       .Include(a => a.Project)
                        .Include("tasks")
-                       .Where(a => a.Developer.Name.Contains(txt) || a.Project.Name.Contains(txt)).ToList();
+                       .Where(a => a.Project.Id == proj.Id && a.Developer.Id == dev.Id)
+                       .Select(a => a.Tasks)                       
+                       .FirstOrDefault()
+                       .ToList();
                 }
             }
             catch

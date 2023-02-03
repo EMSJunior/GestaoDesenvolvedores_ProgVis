@@ -13,26 +13,24 @@ namespace GestaoDesenvolvedores
 {
     internal partial class WindowCreateTask : Form
     {
-        private WindowCreateTask(Allocation aloc = null)
+        private WindowCreateTask(Project proj= null, Developer dev = null)
         {
             InitializeComponent();
-            //if(aloc != null)
-            //{
-            //    List<Allocation> list = new List<Allocation>
-            //    {
-            //        AllocationRepository.GetAllocationWTasksById(aloc.Id)
-            //    };
-            //    dgvAllocList.DataSource = list;
+            if(proj != null && dev != null)
+            {
+                lstProject.DataSource = new List<Project>{ proj };
+                lstDev.DataSource = new List<Developer> { dev };
 
-            //}
+                lstDev_SelectedIndexChanged(null, null);
+            }
         }
 
         private static WindowCreateTask instance;
-        public static WindowCreateTask GetInstance(Allocation aloc = null)
+        public static WindowCreateTask GetInstance(Project proj = null, Developer dev = null)
         {
             if (instance == null || instance.IsDisposed)
             {
-                instance = new WindowCreateTask(aloc);
+                instance = new WindowCreateTask(proj, dev);
             }
 
             return instance;

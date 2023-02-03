@@ -102,8 +102,22 @@ namespace GestaoDesenvolvedores
                 );
             AllocationRepository.Save(aloc);
 
-            MessageBox.Show("Alocação adiocionada!", "Aviso");
+            DialogResult dialog = MessageBox.Show("Alocação adiocionada!\n\nDeseja adicionar tarefas à ela?", "Aviso", MessageBoxButtons.YesNo);
 
+            if (dialog == DialogResult.Yes)
+            {
+                var j = WindowCreateTask.GetInstance((dgvProjectsList.SelectedRows[0].DataBoundItem as Project), (dgvDevsList.SelectedRows[0].DataBoundItem as Developer));
+                if (j.MdiParent == null)
+                {
+                    j.MdiParent = this.MdiParent;
+                    j.Show();
+                }
+                else
+                {
+                    j.WindowState = FormWindowState.Normal;
+                }
+                j.Activate();
+            }
 
         }
 

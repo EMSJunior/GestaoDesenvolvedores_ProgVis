@@ -39,10 +39,10 @@ namespace GestaoDesenvolvedores
 
                 selectedDev.Credential.IsActive = rbtActiveYes.Checked;
                 selectedDev.Credential.IsAdmin = rbtAdminYes.Checked;
-                selectedDev.Level = LevelsRepository.GetLevel((Level)cbxLevel.SelectedItem);
+                selectedDev.Level = (Level)cbxLevel.SelectedItem;
 
                 DeveloperRepository.Save(selectedDev);
-                txtFind_TextChanged(null, null);
+                //txtFind_TextChanged(null, null);
             }
             else if (dialogResult == DialogResult.No)
             {

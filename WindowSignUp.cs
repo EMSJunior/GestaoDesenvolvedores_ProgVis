@@ -13,18 +13,18 @@ namespace GestaoDesenvolvedores
 {
     internal partial class WindowSignUp : Form
     {
-        private WindowSignUp(List<Level> levels)
+        private WindowSignUp()
         {
             InitializeComponent();
             dtpDBdayDate.Value = DateTime.Now;
-            cbxLevel.DataSource = levels;
+            cbxLevel.DataSource = LevelsRepository.GetLevels();
         }
         private static WindowSignUp instance;
-        public static WindowSignUp GetInstance(List<Level> levels)
+        public static WindowSignUp GetInstance()
         {
             if (instance == null || instance.IsDisposed)
             {
-                instance = new WindowSignUp(levels);
+                instance = new WindowSignUp();
             }
 
             return instance;
@@ -37,7 +37,10 @@ namespace GestaoDesenvolvedores
 
         private void SingUp_FormClosing(object sender, FormClosingEventArgs e)
         {
-            GestaoDesenvolvedores.WindowMenu.GetInstance().Show();
+            if(this.MdiParent == null)
+            {
+                GestaoDesenvolvedores.WindowMenu.GetInstance().Show();
+            }
         }
 
         private void tableLayoutPanel4_Paint(object sender, PaintEventArgs e)
@@ -60,7 +63,7 @@ namespace GestaoDesenvolvedores
             }
             catch(Exception Ex)
             {
-                MessageBox.Show(Ex.Message, "Erro");
+                MessageBox.Show(Ex.Message, "Erro no email");
                 txtEmail.Focus();
                 return;
             }
@@ -72,7 +75,7 @@ namespace GestaoDesenvolvedores
             }
             if (cbxLevel.SelectedIndex < 0)
             {
-                MessageBox.Show("Um nível é necessario para o cadastro.\n Caso tenha dúvida sobre eu nível, constate o Administrador.", "Erro");
+                MessageBox.Show("Um nível é necessario para o cadastro.\n Caso tenha dúvida sobre seu nível, constate o Administrador.", "Erro");
                 cbxLevel.Focus();
                 return;
             }
@@ -85,7 +88,14 @@ namespace GestaoDesenvolvedores
             Developer newDev = new Developer(txtName.Text, dtpDBdayDate.Value.Date, LevelsRepository.GetLevel((Level) cbxLevel.SelectedItem));
 
             Credential newDevCredential = new Credential(txtEmail.Text, txtPassword.Text, newDev);
+            
+            if(this.MdiParent != null)
+            {
+                newDevCredential.IsActive = true; // Se a janela for iniciada pelo admin, o dev é adicionado ativo.
+            }
+
             newDev.Credential = newDevCredential;
+
 
             if (!DeveloperRepository.Check(newDev))
             {

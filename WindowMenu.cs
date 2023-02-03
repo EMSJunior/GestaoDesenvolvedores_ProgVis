@@ -12,10 +12,9 @@ namespace GestaoDesenvolvedores
 {
     internal partial class WindowMenu : Form
     {
-        public static List<Level> levels = new List<Level>();
         private WindowMenu()
         {
-            levels = LevelsRepository.GetLevels(); 
+
             InitializeComponent();
             this.Show();
         }
@@ -39,7 +38,7 @@ namespace GestaoDesenvolvedores
         private void btnSingUp_Click(object sender, EventArgs e)
         {
             
-            WindowSignUp.GetInstance(levels).Show();
+            WindowSignUp.GetInstance().Show();
             this.Hide();
         }
 

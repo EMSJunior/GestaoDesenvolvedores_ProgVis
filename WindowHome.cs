@@ -203,7 +203,7 @@ namespace GestaoDesenvolvedores
 
         private void tmiCadastroDev_Click(object sender, EventArgs e)
         {
-            var j = WindowSignUp.GetInstance(LevelsRepository.GetLevels());
+            var j = WindowSignUp.GetInstance();
             if (j.MdiParent == null)
             {
                 j.MdiParent = this;

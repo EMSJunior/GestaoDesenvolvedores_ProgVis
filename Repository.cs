@@ -25,13 +25,13 @@ namespace GestaoDesenvolvedores
                 Repository repositorio = this;
 
                 // Insert Developer levels
-                Level Plenium = new Level("Plenior");
+                Level Pleno = new Level("Pleno");
                 Level Junior = new Level("Júnior");
                 Level Studiant = new Level("Estudante");
                 Level Senior = new Level("Sênior");
 
                 repositorio.Levels.Add(Senior);
-                repositorio.Levels.Add(Plenium);
+                repositorio.Levels.Add(Pleno);
                 repositorio.Levels.Add(Junior);
                 repositorio.Levels.Add(Studiant);
 

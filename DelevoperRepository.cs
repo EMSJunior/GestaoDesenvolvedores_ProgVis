@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.Design;
 using System.Data.Entity;
+using System.Data.Entity.Migrations.Model;
 using System.Linq;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Header;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
@@ -23,7 +24,8 @@ namespace GestaoDesenvolvedores
                         dbContext.Developers.Add(dev);
                     }
                     else
-                    { 
+                    {
+
                         dbContext.Entry(dev).State = EntityState.Modified;
                         dbContext.Entry(dev.Level).State = EntityState.Modified;
                         dbContext.Entry(dev.Credential).State = EntityState.Modified;
@@ -38,7 +40,6 @@ namespace GestaoDesenvolvedores
                 throw;
             }
         }
-       
 
         public static List<Developer> FindAll()
         {
@@ -54,6 +55,7 @@ namespace GestaoDesenvolvedores
                 throw;
             }
         }
+
         public static List<Developer> FindAllWCredential()
         {
             try
@@ -61,8 +63,8 @@ namespace GestaoDesenvolvedores
                 using (Repository dbContext = new Repository())
                 {
                     return dbContext.Developers
-                        .Include("credential")
-                        .Include("level")
+                        .Include(a => a.Credential)
+                        .Include(a => a.Level)
                         .ToList();
                 }
             }
@@ -94,8 +96,8 @@ namespace GestaoDesenvolvedores
                 using (Repository dbContext = new Repository())
                 {
                     return dbContext.Developers
-                        .Include("credential")
-                        .Include("Level")
+                        .Include(a => a.Credential)
+                        .Include(a => a.Level)
                         .Where(u => u.Id == id)
                         .FirstOrDefault();
                 }
@@ -112,7 +114,7 @@ namespace GestaoDesenvolvedores
                 using (Repository dbContext = new Repository())
                 {
                     return dbContext.Developers
-                        .Include("Credential")
+                        .Include(a => a.Credential)
                         .Where(e => e.Credential.Email == email)
                         .FirstOrDefault();
                 }
@@ -139,6 +141,7 @@ namespace GestaoDesenvolvedores
                 throw;
             }
         }
+
         public static List<Developer> FindByPartialNameWCredential(String partialName)
         {
             try
@@ -146,8 +149,8 @@ namespace GestaoDesenvolvedores
                 using (Repository dbContext = new Repository())
                 {
                     return dbContext.Developers
-                        .Include("Credential")
-                        .Include("Level")
+                        .Include(a => a.Credential)
+                        .Include(a => a.Level)
                         .Where(u => u.Name.Contains(partialName))
                         .ToList<Developer>();
                 }
@@ -159,30 +162,6 @@ namespace GestaoDesenvolvedores
         }
 
 
-        public static void Remove(Developer dev)
-        {
-            try
-            {
-                using (Repository dbContext = new Repository())
-                {
-                    dbContext.Developers.Attach(dev);
-                    dbContext.Developers.Remove(dev);
-
-                    // OR
-
-                    // But cascade delete fails...
-                    //dbContext.Entry(usuario).State
-                    //    = EntityState.Deleted;
-
-                    dbContext.SaveChanges();
-                }
-            }
-            catch 
-            {
-                throw;
-            }
-
-        }
         
         public static bool Check(Developer dev)
         {

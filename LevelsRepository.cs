@@ -18,7 +18,7 @@ namespace GestaoDesenvolvedores
                     return DbContext.Levels.ToList();
                 }
             }
-            catch (Exception)
+            catch
             {
                 throw;
             }
@@ -33,7 +33,7 @@ namespace GestaoDesenvolvedores
                 }
 
             }
-            catch(Exception)
+            catch
             {
                 throw;
             }

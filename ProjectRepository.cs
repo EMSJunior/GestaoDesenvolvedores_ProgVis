@@ -18,7 +18,10 @@ namespace GestaoDesenvolvedores
                     dbContext.SaveChanges();
                 }
             }
-            catch (Exception) { throw; }
+            catch 
+            { 
+                throw;
+            }
         }
         public static List<Project> FindAll()
         {
@@ -29,7 +32,10 @@ namespace GestaoDesenvolvedores
                     return dbContext.Projects.ToList();
                 }
             }
-            catch (Exception) { throw; }
+            catch 
+            { 
+                throw;
+            }
         }
         public static List<Project> FindByPartialName(String partialName)
         {
@@ -42,7 +48,7 @@ namespace GestaoDesenvolvedores
                         .ToList<Project>();
                 }
             }
-            catch (Exception)
+            catch 
             {
                 throw;
             }
@@ -56,7 +62,7 @@ namespace GestaoDesenvolvedores
                     return dbContext.Projects.Find(id);
                 }
             }
-            catch (Exception)
+            catch 
             {
                 throw;
             }
@@ -75,7 +81,7 @@ namespace GestaoDesenvolvedores
 
                 }
             }
-            catch (Exception)
+            catch 
             {
                 throw;
             }
@@ -95,7 +101,7 @@ namespace GestaoDesenvolvedores
 
                 }
             }
-            catch (Exception)
+            catch 
             {
                 throw;
             }

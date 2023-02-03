@@ -16,25 +16,24 @@ namespace GestaoDesenvolvedores
             {
                 using (Repository dbContext = new Repository())
                 {
-                    dbContext.Entry(dev.Level).State = EntityState.Unchanged;
 
                     if (dev.Id == 0)
                     {
+                        dbContext.Entry(dev.Level).State = EntityState.Unchanged;
                         dbContext.Developers.Add(dev);
                     }
                     else
-                    {
-                        dbContext.Entry(dev.Credential).State = EntityState.Modified;
+                    { 
+                        dbContext.Entry(dev).State = EntityState.Modified;
                         dbContext.Entry(dev.Level).State = EntityState.Modified;
-                        
+                        dbContext.Entry(dev.Credential).State = EntityState.Modified;
 
 
-                        dbContext.Developers.Attach(dev);
                     }
                     dbContext.SaveChanges();
                     }
             }
-            catch (Exception)
+            catch
             {
                 throw;
             }
@@ -50,7 +49,7 @@ namespace GestaoDesenvolvedores
                     return dbContext.Developers.ToList();
                 }
             }
-            catch (Exception)
+            catch
             {
                 throw;
             }
@@ -61,10 +60,13 @@ namespace GestaoDesenvolvedores
             {
                 using (Repository dbContext = new Repository())
                 {
-                    return dbContext.Developers.Include("credential").ToList();
+                    return dbContext.Developers
+                        .Include("credential")
+                        .Include("level")
+                        .ToList();
                 }
             }
-            catch (Exception)
+            catch
             {
                 throw;
             }
@@ -79,7 +81,7 @@ namespace GestaoDesenvolvedores
                     return dbContext.Developers.Find(id);
                 }
             }
-            catch (Exception)
+            catch
             {
                 throw;
             }
@@ -93,12 +95,12 @@ namespace GestaoDesenvolvedores
                 {
                     return dbContext.Developers
                         .Include("credential")
-                        .Where(u => u.Id == id)
                         .Include("Level")
+                        .Where(u => u.Id == id)
                         .FirstOrDefault();
                 }
             }
-            catch (Exception)
+            catch
             {
                 throw;
             }
@@ -115,7 +117,7 @@ namespace GestaoDesenvolvedores
                         .FirstOrDefault();
                 }
             }
-            catch (Exception)
+            catch
             {
                 throw;
             }
@@ -132,7 +134,7 @@ namespace GestaoDesenvolvedores
                         .ToList<Developer>();
                 }
             }
-            catch (Exception)
+            catch 
             {
                 throw;
             }
@@ -145,11 +147,12 @@ namespace GestaoDesenvolvedores
                 {
                     return dbContext.Developers
                         .Include("Credential")
+                        .Include("Level")
                         .Where(u => u.Name.Contains(partialName))
                         .ToList<Developer>();
                 }
             }
-            catch (Exception)
+            catch
             {
                 throw;
             }
@@ -174,7 +177,7 @@ namespace GestaoDesenvolvedores
                     dbContext.SaveChanges();
                 }
             }
-            catch (Exception)
+            catch 
             {
                 throw;
             }
@@ -190,7 +193,10 @@ namespace GestaoDesenvolvedores
                     return Dbcontext.Developers.Any(e => e.Credential.Email == dev.Credential.Email);
                 }
             }
-            catch(Exception) { throw; }
+            catch
+            { 
+                throw;
+            }
         }
     }
 }

@@ -35,11 +35,11 @@ namespace GestaoDesenvolvedores
             DialogResult dialogResult = MessageBox.Show("Tem certeza que deseja modificar o desenvolvedor '" + lblDevName.Text+"' ?", "Alerta", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
-                Developer selectedDev = DeveloperRepository.FindByIdWCredential((dgvDevsList.SelectedRows[0].DataBoundItem as Developer).Id);
+                Developer selectedDev = dgvDevsList.SelectedRows[0].DataBoundItem as Developer;
 
                 selectedDev.Credential.IsActive = rbtActiveYes.Checked;
                 selectedDev.Credential.IsAdmin = rbtAdminYes.Checked;
-                //selectedDev.Level = LevelsRepository.GetLevel((Levels)cbxLevel.SelectedItem);
+                selectedDev.Level = LevelsRepository.GetLevel((Level)cbxLevel.SelectedItem);
 
                 DeveloperRepository.Save(selectedDev);
             }
@@ -52,7 +52,7 @@ namespace GestaoDesenvolvedores
         {
             try
             {
-                Developer selectedDev = DeveloperRepository.FindByIdWCredential((dgvDevsList.SelectedRows[0].DataBoundItem as Developer).Id);
+                Developer selectedDev = (dgvDevsList.SelectedRows[0].DataBoundItem as Developer);
 
                 lblDevName.Text = selectedDev.Name;
                 if (selectedDev.Credential.IsActive)
@@ -73,8 +73,6 @@ namespace GestaoDesenvolvedores
                 }
                 cbxLevel.SelectedIndex = selectedDev.Level.Id - 1;
 
-
-
             }
             catch
             {
@@ -88,7 +86,7 @@ namespace GestaoDesenvolvedores
 
         private void btnFind_Click(object sender, EventArgs e)
         {
-            dgvDevsList.DataSource = DeveloperRepository.FindByPartialName(txtFind.Text);
+            dgvDevsList.DataSource = DeveloperRepository.FindByPartialNameWCredential(txtFind.Text);
         }
 
         private void label5_Click(object sender, EventArgs e)

@@ -162,6 +162,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Project.cs" />
+    <Compile Include="WindowMyTasks.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WindowMyTasks.Designer.cs">
+      <DependentUpon>WindowMyTasks.cs</DependentUpon>
+    </Compile>
     <Compile Include="WindowProjectList.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -204,6 +210,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="WindowMenu.resx">
       <DependentUpon>WindowMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WindowMyTasks.resx">
+      <DependentUpon>WindowMyTasks.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WindowProjectList.resx">
       <DependentUpon>WindowProjectList.cs</DependentUpon>

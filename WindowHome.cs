@@ -174,7 +174,17 @@ namespace GestaoDesenvolvedores
 
         private void tmiTaskList_Click(object sender, EventArgs e)
         {
-            
+            var j = WindowMyTasks.GetInstance(devLog);
+            if (j.MdiParent == null)
+            {
+                j.MdiParent = this;
+                j.Show();
+            }
+            else
+            {
+                j.WindowState = FormWindowState.Normal;
+            }
+            j.Activate();
         }
 
         private void tmiTaskNew_Click(object sender, EventArgs e)

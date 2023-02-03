@@ -46,6 +46,7 @@ namespace GestaoDesenvolvedores
                     return dbContext.Allocations
                         .Include("Project")
                         .Include("Developer")
+                        .Include("Tasks")
                         .Where(a => a.Developer.Id == dev.Id)
                         .ToList();
                 }
@@ -151,6 +152,7 @@ namespace GestaoDesenvolvedores
             }
 
         }
+
 
     }
 }

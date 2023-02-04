@@ -119,7 +119,6 @@
             this.txbEmail.Name = "txbEmail";
             this.txbEmail.Size = new System.Drawing.Size(272, 26);
             this.txbEmail.TabIndex = 2;
-            this.txbEmail.Text = "admin@default.com";
             this.txbEmail.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txbEmail_KeyUp);
             // 
             // tableLayoutPanel3
@@ -163,7 +162,6 @@
             this.txbSenha.Name = "txbSenha";
             this.txbSenha.Size = new System.Drawing.Size(262, 26);
             this.txbSenha.TabIndex = 3;
-            this.txbSenha.Text = "adminpass";
             this.txbSenha.UseSystemPasswordChar = true;
             this.txbSenha.TextChanged += new System.EventHandler(this.txbSenha_TextChanged);
             this.txbSenha.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txbSenha_KeyUp);
